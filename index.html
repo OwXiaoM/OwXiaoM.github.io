@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Xiaoming's Personal Webpage</title>
+<link rel="icon" type="image/png" href="./photo/baby.png">
+
 <style>
   body {
     font-family: 'Arial', sans-serif;
@@ -19,15 +21,15 @@
     text-decoration: underline;
   }
   .intro-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px; 
-    text-align: justify; 
+    max-width: 800px; /* 或者您希望的宽度 */
+    margin: auto; /* 自动边距实现居中 */
+    padding: 20px; /* 添加一些内边距 */
+    text-align: justify; /* 文本左对齐 */
   }
   .container {
-    max-width: 800px; 
-    margin: auto; 
-    padding: 20px; 
+    max-width: 800px; /* 或者您希望的宽度 */
+    margin: auto; /* 自动边距实现居中 */
+    padding: 20px; /* 添加一些内边距 */
   }
   .image-container img {
     width: 200px;
@@ -38,37 +40,15 @@
   .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; 
+    justify-content: center; /* 相册图片居中排列 */
     gap: 10px;
   }
-  .gallery img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.2s;
-    margin-bottom: 5px; 
-  }
-  .gallery img:hover {
-    transform: scale(1.1);
-  }
-  .gallery .image-description {
-    display: none;
-    text-align: center;
-  }
-  .gallery img:hover + .image-description {
-    display: block;
-  }
   .gallery .img-container {
-    display: inline-block;
     position: relative;
     width: 150px;
     height: 150px;
     margin: 5px;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
   }
   .gallery img {
     width: 100%;
@@ -80,19 +60,23 @@
   .gallery img:hover {
     transform: scale(1.1);
   }
-  .gallery .description {
-    display: none;
+  /* 当鼠标悬停在包含图片的容器上时，显示描述 */
+  .gallery .img-container:hover .description {
+    display: block;
     position: absolute;
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.7);
     color: #fff;
-    width: 100%; 
+    width: 100%;
     text-align: center;
     padding: 5px;
-    font-size: 12px; 
+    font-size: 12px;
     white-space: nowrap;
+  }
+  .description {
+    display: none; /* 默认不显示描述，通过悬停来显示 */
   }
   .modal {
     display: none;
@@ -122,6 +106,7 @@
     cursor: pointer;
   }
 </style>
+
 </head>
 <body>
 
@@ -146,7 +131,7 @@
       <!-- 添加图片和描述容器 -->
       <div class="img-container">
         <img src="./photo/p0.jpg" alt="Photo 1" onclick="openModal('./photo/p0.jpg', '')">
-        <div class="description">Rigi, Luzern</div>
+        <div class="description">Lake, Luzern</div>
       </div>
       <div class="img-container">
         <img src="./photo/p1.jpg" alt="Photo 2" onclick="openModal('./photo/p1.jpg', '')">
@@ -154,11 +139,11 @@
       </div>
       <div class="img-container">
         <img src="./photo/p2.jpg" alt="Photo 3" onclick="openModal('./photo/p2.jpg', '')">
-        <div class="description">Matterhorn, Zermatt</div>
+        <div class="description">Mountain, Zermatt</div>
       </div>
       <div class="img-container">
         <img src="./photo/p3.jpg" alt="Photo 4" onclick="openModal('./photo/p3.jpg', '')">
-        <div class="description">Guantang, Suzhou</div>
+        <div class="description">River, Suzhou</div>
       </div>
       <div class="img-container">
         <img src="./photo/p4.jpg" alt="Photo 5" onclick="openModal('./photo/p4.jpg', '')">
@@ -170,11 +155,11 @@
       </div>
       <div class="img-container">
         <img src="./photo/p6.jpg" alt="Photo 7" onclick="openModal('./photo/p6.jpg', '')">
-        <div class="description">Prado, Marseille</div>
+        <div class="description">Seaside, Marseille</div>
       </div>
       <div class="img-container">
         <img src="./photo/p7.jpg" alt="Photo 8" onclick="openModal('./photo/p7.jpg', '')">
-        <div class="description">Talloires, Annecy</div>
+        <div class="description">Lake, Annecy</div>
       </div>
       <div class="img-container">
         <img src="./photo/p8.jpg" alt="Photo 9" onclick="openModal('./photo/p8.jpg', '')">
@@ -185,11 +170,11 @@
         <div class="description">Lake, Geneva</div>
       </div>
       <div class="img-container">
-        <img src="./photo/p10.jpg" alt="Photo 10" onclick="openModal('./photo/p10.jpg', '')">
+        <img src="./photo/p10.jpg" alt="Photo 11" onclick="openModal('./photo/p10.jpg', '')">
         <div class="description">Bridge, London</div>
       </div>
       <div class="img-container">
-        <img src="./photo/p11.jpg" alt="Photo 10" onclick="openModal('./photo/p11.jpg', '')">
+        <img src="./photo/p11.jpg" alt="Photo 12" onclick="openModal('./photo/p11.jpg', '')">
         <div class="description">Bridge, Lyon</div>
       </div>
     </div>
@@ -199,7 +184,7 @@
   <span class="close" onclick="closeModal()">&times;</span>
   <img class="modal-content" id="img01">
   <div id="caption"></div>
-</div>
+</div> 
 <div style="width: 200px; height: 200px;">
     <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=bjcQ658LDyXWeKXSu6pvi8k4I9VqC1aDfwr_XGutbWc"></script>
 </div>
