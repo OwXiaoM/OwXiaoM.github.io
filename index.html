@@ -1,4 +1,216 @@
-<p>Hello</p>
-<p>I am Xiaoming </p>
-<p>Bonjour</p>
-<p>Je m'appelle XIAOMING </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xiaoming's Personal Webpage</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+  }
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  .intro-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px; 
+    text-align: justify; 
+  }
+  .container {
+    max-width: 800px; 
+    margin: auto; 
+    padding: 20px; 
+  }
+  .image-container img {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 10px;
+  }
+  .gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-bottom: 5px; 
+  }
+  .gallery img:hover {
+    transform: scale(1.1);
+  }
+  .gallery .image-description {
+    display: none;
+    text-align: center;
+  }
+  .gallery img:hover + .image-description {
+    display: block;
+  }
+  .gallery .img-container {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .gallery img:hover {
+    transform: scale(1.1);
+  }
+  .gallery .description {
+    display: none;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); /* 向上和向左移动50%，从而实现居中 */
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    width: 100%; 
+    text-align: center;
+    padding: 5px;
+    font-size: 12px; 
+    white-space: nowrap;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+  }
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container image-container">
+  <img src="./photo/baby.png" alt="Xiaoming's Photo">
+</div>
+
+<div class="intro-container">
+    <p>Hello,</p>
+    <p>My name is Xiaoming, it's a pleasure to meet you. Photography is a passion of mine, which explains my fascination with low-level vision tasks within the computer vision. These tasks provide insight into digital imaging technologies and photographic techniques. In my journey through the field of computer vision, I am immensely grateful for the opportunity to have been mentored by <a href="https://faculty.swjtu.edu.cn/litianrui/zh_CN/index/33169/list/index.htm" target="_blank">Li Tianrui</a>, 
+    <a href="https://zxlation.github.io/xiaole.github.com/" target="_blank">Xiaole Zhao</a>, 
+    <a href="http://www.liushuaicheng.org/" target="_blank">Liu Shuaicheng</a>, and 
+    <a href="https://scholar.google.fr/citations?user=CChT2_kAAAAJ&hl=fr" target="_blank">Pascal Prea</a>. 
+    I am currently on a journey to conduct more engaging research and hope to advance a little for the computer vision community. Below, I made a small collection of my
+    scenic photographs. Capturing these images has been a soothing and enjoyable experience, and I hope they bring you joy as well.
+</p>
+</div>
+
+<div class="container">
+    <h4>My Album</h4>
+    <div class="gallery">
+      <!-- 添加图片和描述容器 -->
+      <div class="img-container">
+        <img src="./photo/p0.jpg" alt="Photo 1" onclick="openModal('./photo/p0.jpg', '')">
+        <div class="description">Rigi, Luzern</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p1.jpg" alt="Photo 2" onclick="openModal('./photo/p1.jpg', '')">
+        <div class="description">Cliff, Marseille</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p2.jpg" alt="Photo 3" onclick="openModal('./photo/p2.jpg', '')">
+        <div class="description">Matterhorn, Zermatt</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p3.jpg" alt="Photo 4" onclick="openModal('./photo/p3.jpg', '')">
+        <div class="description">Guantang, Suzhou</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p4.jpg" alt="Photo 5" onclick="openModal('./photo/p4.jpg', '')">
+        <div class="description">Seaside, Rizhao</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p5.jpg" alt="Photo 6" onclick="openModal('./photo/p5.jpg', '')">
+        <div class="description">Lujiazui, Shanghai</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p6.jpg" alt="Photo 7" onclick="openModal('./photo/p6.jpg', '')">
+        <div class="description">Prado, Marseille</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p7.jpg" alt="Photo 8" onclick="openModal('./photo/p7.jpg', '')">
+        <div class="description">Talloires, Annecy</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p8.jpg" alt="Photo 9" onclick="openModal('./photo/p8.jpg', '')">
+        <div class="description">Lake, Hangzhou</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p9.jpg" alt="Photo 10" onclick="openModal('./photo/p9.jpg', '')">
+        <div class="description">Lake, Geneva</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p10.jpg" alt="Photo 10" onclick="openModal('./photo/p10.jpg', '')">
+        <div class="description">Bridge, London</div>
+      </div>
+      <div class="img-container">
+        <img src="./photo/p11.jpg" alt="Photo 10" onclick="openModal('./photo/p11.jpg', '')">
+        <div class="description">Bridge, Lyon</div>
+      </div>
+    </div>
+  </div>
+
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script>
+function openModal(src, description) {
+  document.getElementById('myModal').style.display = "block";
+  document.getElementById('img01').src = src;
+  document.getElementById('caption').innerHTML = description; 
+}
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+</script>
+
+</body>
+</html>
