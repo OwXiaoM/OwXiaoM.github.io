@@ -29,13 +29,13 @@
   .container {
     max-width: 800px;
     margin: auto; 
-    padding: 20px; 
+    padding: 2px;
   }
   .image-container img {
     width: 200px;
     height: auto;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
   }
   .gallery {
     display: flex;
@@ -43,6 +43,25 @@
     justify-content: center; 
     gap: 10px;
   }
+  .image-container {
+  display: flex; /* 添加 flex 布局 */
+  align-items: center; /* 垂直居中子元素 */
+  justify-content: center; /* 水平居中子元素 */
+  }
+
+  .image-links {
+    margin-left: 20px; /* 与图片的间隔距离 */
+  }
+
+  .image-links ul {
+    list-style: none; /* 移除列表符号 */
+    padding: 0; /* 移除默认的内边距 */
+  }
+
+  .image-links li {
+    margin-bottom: 10px; /* 列表项之间的间隔 */
+  }
+
   .gallery .img-container {
     position: relative;
     width: 150px;
@@ -109,9 +128,15 @@
 </head>
 <body>
 
-<div class="container image-container">
-  <img src="./photo/baby.png" alt="Xiaoming's Photo">
-</div>
+  <div class="container image-container">
+    <img src="./photo/baby.png" alt="Xiaoming's Photo">
+    <div class="image-links">
+      <ul>
+        <li><a href="https://scholar.google.com/citations?user=ANtWOPgDwosC" target="_blank">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0009-0000-3986-885X" target="_blank">ORCID</a></li>
+      </ul>
+    </div>
+  </div>
 
 <div class="intro-container">
     <p>Hello,</p>
@@ -178,10 +203,11 @@
       </div>
     </div>
   </div>
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh;"><div style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 50px); margin-top: -50px;">    <div style="width: 150px; height: 150px;">
-        <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=bjcQ658LDyXWeKXSu6pvi8k4I9VqC1aDfwr_XGutbWc"></script>
+  <div style="display: flex; justify-content: center; align-items: center; height: 40vh; margin-top: -50px;">
+    <div style="width: 150px; height: 150px;">
+      <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=bjcQ658LDyXWeKXSu6pvi8k4I9VqC1aDfwr_XGutbWc"></script>
     </div>
-</div>
+  </div>
 <div id="myModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <img class="modal-content" id="img01">
