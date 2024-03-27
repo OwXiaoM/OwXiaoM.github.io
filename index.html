@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xiaoming's Personal Webpage</title>
+<title>Xiaoming Zhang</title>
 <link rel="icon" type="image/png" href="./photo/baby.png">
 
 <style>
@@ -21,15 +21,15 @@
     text-decoration: underline;
   }
   .intro-container {
-    max-width: 800px; /* 或者您希望的宽度 */
-    margin: auto; /* 自动边距实现居中 */
-    padding: 20px; /* 添加一些内边距 */
-    text-align: justify; /* 文本左对齐 */
+    max-width: 800px; 
+    margin: auto;
+    padding: 20px; 
+    text-align: justify;
   }
   .container {
-    max-width: 800px; /* 或者您希望的宽度 */
-    margin: auto; /* 自动边距实现居中 */
-    padding: 20px; /* 添加一些内边距 */
+    max-width: 800px;
+    margin: auto; 
+    padding: 20px; 
   }
   .image-container img {
     width: 200px;
@@ -40,7 +40,7 @@
   .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* 相册图片居中排列 */
+    justify-content: center; 
     gap: 10px;
   }
   .gallery .img-container {
@@ -60,7 +60,6 @@
   .gallery img:hover {
     transform: scale(1.1);
   }
-  /* 当鼠标悬停在包含图片的容器上时，显示描述 */
   .gallery .img-container:hover .description {
     display: block;
     position: absolute;
@@ -76,7 +75,7 @@
     white-space: nowrap;
   }
   .description {
-    display: none; /* 默认不显示描述，通过悬停来显示 */
+    display: none; 
   }
   .modal {
     display: none;
@@ -116,11 +115,12 @@
 
 <div class="intro-container">
     <p>Hello,</p>
-    <p>My name is Xiaoming, it's a pleasure to meet you. Photography is a passion of mine, which explains my fascination with low-level vision tasks within the computer vision. These tasks provide insight into digital imaging technologies and photographic techniques. In my journey through the field of computer vision, I am immensely grateful for the opportunity to have been mentored by <a href="https://faculty.swjtu.edu.cn/litianrui/zh_CN/index/33169/list/index.htm" target="_blank">Li Tianrui</a>, 
+    <p>My name is Xiaoming, it's a pleasure to meet you. Photography is a passion of mine, which naturally extends to my enthusiasm for low-level vision tasks in the realm of computer vision.  
+    Engaging in these tasks has deepened my understanding of digital imaging and the art of photography. In my journey through the field of computer vision, I am immensely grateful for the opportunity to have been guided by <a href="https://faculty.swjtu.edu.cn/litianrui/zh_CN/index/33169/list/index.htm" target="_blank">Li Tianrui</a>, 
     <a href="https://zxlation.github.io/xiaole.github.com/" target="_blank">Xiaole Zhao</a>, 
     <a href="http://www.liushuaicheng.org/" target="_blank">Liu Shuaicheng</a>, and 
     <a href="https://scholar.google.fr/citations?user=CChT2_kAAAAJ&hl=fr" target="_blank">Pascal Prea</a>. 
-    I am currently on a journey to conduct more engaging research and hope to advance a little for the computer vision community. Below, I made a small collection of my
+    Presently, I'm embarked on a voyage of discovery, and hope to advance a little for the computer vision community. Below, I made a small collection of my
     scenic photographs. Capturing these images has been a soothing and enjoyable experience, and I hope they bring you joy as well.
 </p>
 </div>
@@ -128,7 +128,6 @@
 <div class="container">
     <h4>My Album</h4>
     <div class="gallery">
-      <!-- 添加图片和描述容器 -->
       <div class="img-container">
         <img src="./photo/p0.jpg" alt="Photo 1" onclick="openModal('./photo/p0.jpg', '')">
         <div class="description">Lake, Luzern</div>
@@ -185,8 +184,10 @@
   <img class="modal-content" id="img01">
   <div id="caption"></div>
 </div> 
-<div style="width: 200px; height: 200px;">
-    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=bjcQ658LDyXWeKXSu6pvi8k4I9VqC1aDfwr_XGutbWc"></script>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="width: 200px; height: 200px;">
+        <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=bjcQ658LDyXWeKXSu6pvi8k4I9VqC1aDfwr_XGutbWc"></script>
+    </div>
 </div>
 <script>
 function openModal(src, description) {
