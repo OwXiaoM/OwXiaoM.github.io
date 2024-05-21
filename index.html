@@ -123,6 +123,36 @@
     font-weight: bold;
     cursor: pointer;
   }
+  .news-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.news-content {
+  max-height: 200px; 
+  overflow-y: auto; 
+  margin: 15px 0; 
+}
+.news-container h4 {
+  margin-bottom: 15px;
+}
+
+.news-content ul {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
+}
+
+.news-content li {
+  padding: 5px 0; 
+}
+
+.news-content li span {
+  font-weight: bold; 
+}
 </style>
 
 </head>
@@ -212,6 +242,22 @@
   <img class="modal-content" id="img01">
   <div id="caption"></div>
 </div> 
+  <div class="container news-container">
+  <h4>Updates</h4>
+  <div class="news-content">
+<ul>
+<li><span>2024/03</span> - One paper on non-contrast CT is early accepted to <span style="color: #87CEFA;">MICCAI 2024</span>.</li>
+<li><span>2024/04</span> - I serve as a reviewer for <span style="color: #87CEFA;">ACMMM 2024</span>.</li>
+<li><span>2024/03</span> - I serve as a reviewer for <span style="color: #87CEFA;">ECCV 2024</span>.</li>
+      <li><span>2023/12</span> - I serve as a reviewer for <span style="color: #87CEFA;">CVPR 2024</span>.</li> 
+<li><span>2023/12</span> - I serve as a reviewer for <span style="color: #90EE90;">IEEE TPAMI</span>.</li>
+      <li><span>2023/07</span> - One paper on image super-resolution is accepted to <span style="color: #87CEFA;">ICCV 2023</span>.</li>
+      <li><span>2023/04</span> - One paper on lightweight image super-resolution is accepted to <span style="color: #87CEFA;">CVPRW 2023</span>.</li>
+      <li><span>2023/04</span> - One paper on image super-resolution of remote sensing is accepted to <span style="color: #90EE90;">IEEE GRSL</span>.</li>
+    </ul>
+  </div>
+</div>
+
 <script>
 function openModal(src, description) {
   document.getElementById('myModal').style.display = "block";
