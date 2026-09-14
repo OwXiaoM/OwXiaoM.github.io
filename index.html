@@ -1,162 +1,339 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xiaoming Zhang</title>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Xiaoming Zhang</title><meta content="Academic homepage of Xiaoming Zhang, featuring research interests, publications, reviewing service, awards, and photography." name="description"/>
 <style>
-  body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f8f9fa;
-  }
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-  .intro-container {
-    max-width: 800px; 
-    margin: auto;
-    padding: 20px; 
-    text-align: justify;
-  }
-  .container {
-    max-width: 800px;
-    margin: auto; 
-    padding: 2px;
-  }
-  .image-container img {
-    width: auto;
-    height: 120px;
-    border-radius: 20px;
-    margin-bottom: 2px;
-  }
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 10px;
-  }
-  .image-container {
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  }
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #2b2f33;
+  --muted: #7a8088;
+  --heading: #171a1d;
+  --border: #e5e7eb;
+  --accent: #b85c38;
+  --accent-hover: #8f4329;
+  --shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
 
-  .image-links {
-    margin-left: 20px; 
-  }
+* {
+  box-sizing: border-box;
+}
 
-  .image-links ul {
-    list-style: none; 
-    padding: 0; 
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  .image-links li {
-    margin-bottom: 10px; 
-  }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
 
-  .gallery .img-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 5px;
-    overflow: hidden;
-  }
-  .gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  .gallery img:hover {
-    transform: scale(1.1);
-  }
-  .gallery .img-container:hover .description {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    width: 100%;
-    text-align: center;
-    padding: 5px;
-    font-size: 12px;
-    white-space: nowrap;
-  }
-  .description {
-    display: none; 
-  }
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.9);
-  }
-  .modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-  }
-  .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .news-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  padding-top: 20px;  
-  padding-bottom: 20px; 
-  background-color: #fff; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+a {
+  color: var(--accent);
+  text-decoration: none;
+  text-underline-offset: 2px;
+  transition: color 0.18s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.container,
+.intro-container {
+  width: min(860px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.intro-container {
+  padding: 26px 24px 18px;
+  text-align: justify;
+}
+
+.intro-container p {
+  margin: 0;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 34px 24px 10px;
+}
+
+.image-container img {
+  width: auto;
+  height: 124px;
+  border-radius: 18px;
+  display: block;
+}
+
+.image-links {
+  margin: 0;
+}
+
+.image-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.image-links li {
+  margin: 6px 0;
+}
+
+.image-links a {
+  font-weight: 600;
+}
+
+h4 {
+  margin: 0 0 14px;
+  color: var(--heading);
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+
+.news-container {
+  padding: 22px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
 .news-content {
-  max-height: 200px; 
-  overflow-y: auto; 
-  margin: 15px 0; 
+  max-height: 330px;
+  overflow-y: auto;
+  margin: 0;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #c9cdd2 transparent;
 }
-.news-container h4 {
-  margin-bottom: 15px;
+
+.news-content::-webkit-scrollbar {
+  width: 7px;
+}
+
+.news-content::-webkit-scrollbar-thumb {
+  background: #c9cdd2;
+  border-radius: 8px;
 }
 
 .news-content ul {
-  list-style-type: none; 
-  padding: 0; 
-  margin: 0; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .news-content li {
-  padding: 5px 0; 
+  position: relative;
+  padding: 7px 0 7px 92px;
+  border-bottom: 1px solid #f0f1f2;
 }
 
-.news-content li span {
-  font-weight: bold; 
+.news-content li:last-child {
+  border-bottom: none;
+}
+
+.news-content time {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 76px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.news-content .venue,
+.news-content .award {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.news-content a.paper {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.news-content a.award {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.news-content a.award:hover,
+.news-content a.award:focus-visible {
+  color: var(--accent-hover);
+}
+
+.gallery-section {
+  margin-top: 34px;
+  padding: 0 2px 24px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.gallery .img-container {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #e9ecef;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.gallery .img-container:hover img {
+  transform: scale(1.045);
+}
+
+.description {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 7px 8px;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+  text-align: center;
+  font-size: 0.78rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.gallery .img-container:hover .description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.visitor-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
+  margin-top: 12px;
+}
+
+.visitor-map-inner {
+  width: 200px;
+  height: 200px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  padding: 64px 24px 24px;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: min(90vw, 900px);
+  max-height: 82vh;
+  object-fit: contain;
+}
+
+.close {
+  position: fixed;
+  top: 18px;
+  right: 30px;
+  color: #f1f1f1;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus-visible {
+  color: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .intro-container {
+    text-align: left;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .image-container {
+    padding-top: 26px;
+  }
+
+  .news-container {
+    padding: 18px;
+  }
+
+  .news-content li {
+    padding-left: 0;
+  }
+
+  .news-content time {
+    position: static;
+    display: block;
+    width: auto;
+    margin-bottom: 1px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .intro-container {
+    width: min(100% - 22px, 860px);
+  }
+
+  .image-container {
+    gap: 16px;
+  }
+
+  .image-container img {
+    height: 108px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .news-content {
+    max-height: 380px;
+  }
 }
 </style>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E9KYK33CDN"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-E9KYK33CDN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -166,153 +343,158 @@
 </script>
 </head>
 <body>
-
-  <div class="container image-container" style="text-align: center;">
-   
-   <img src="./photo/baby.png" alt="Xiaoming's Photo">
-    <div class="image-links">
-      <ul>
-        <li><a href="https://scholar.google.com/citations?user=ANtWOPgDwosC" target="_blank">Google Scholar</a></li>
-        <li><a href="https://orcid.org/0009-0000-3986-885X" target="_blank">ORCID</a></li>
-      </ul>
-    </div>
-  </div>
-
-
+<div class="container image-container">
+<img alt="Xiaoming's Photo" src="./photo/baby.png"/>
+<div class="image-links">
+<ul>
+<li><a href="https://scholar.google.com/citations?user=ANtWOPgDwosC" rel="noopener noreferrer" target="_blank">Google Scholar</a></li>
+<li><a href="https://orcid.org/0009-0000-3986-885X" rel="noopener noreferrer" target="_blank">ORCID</a></li>
+</ul>
+</div>
+</div>
 <div class="intro-container">
-  <p>
+<p>
     Hello, my name is Xiaoming, it's a pleasure to meet you.
-    <br>
+    <br/>
     My research interests lie at the intersection of medical image analysis, radiology, neuroimaging and oncology imaging, with a focus on real-world diagnostic challenges and understanding brain ageing across the lifespan.
-    <br>
-     I am currently contributing to the ERC Consolidator Grant project <a href="https://www.kcl.ac.uk/news/2-million-erc-grant-awarded-for-studying-the-brain-vessel-tree" target="_blank">CARAVEL</a>, led by Professor <a href="https://zuluaga.eurecom.io/" target="_blank">Maria A. Zuluaga</a>, also in close collaboration with Professor <a href="https://www.kcl.ac.uk/people/sebastien-ourselin" target="_blank">Sébastien Ourselin</a> 
-and Professor <a href="https://www.professoren.tum.de/rueckert-daniel" target="_blank">Daniel Rüeckert</a>.
-    <br>
-    I have been fortunate to receive guidance from  Professor <a href="https://www.cs.jhu.edu/~lelu/" target="_blank">Le Lu</a>, Professor <a href="https://faculty.swjtu.edu.cn/litianrui/en/index.htm" target="_blank">Tianrui Li</a> and Professor <a href="https://scholar.google.fr/citations?user=CChT2_kAAAAJ&hl=fr" target="_blank">Pascal Prea</a> during my journey in translational medicine and computer science.
-    <br>
+    <br/>
+     I am currently contributing to the ERC Consolidator Grant project <a href="https://www.kcl.ac.uk/news/2-million-erc-grant-awarded-for-studying-the-brain-vessel-tree" rel="noopener noreferrer" target="_blank">CARAVEL</a>, led by Professor <a href="https://zuluaga.eurecom.io/" rel="noopener noreferrer" target="_blank">Maria A. Zuluaga</a>, also in close collaboration with Professor <a href="https://www.kcl.ac.uk/people/sebastien-ourselin" rel="noopener noreferrer" target="_blank">Sébastien Ourselin</a> 
+and Professor <a href="https://www.professoren.tum.de/rueckert-daniel" rel="noopener noreferrer" target="_blank">Daniel Rüeckert</a>.
+    <br/>
+    I have been fortunate to receive guidance from  Professor <a href="https://www.cs.jhu.edu/~lelu/" rel="noopener noreferrer" target="_blank">Le Lu</a>, Professor <a href="https://faculty.swjtu.edu.cn/litianrui/en/index.htm" rel="noopener noreferrer" target="_blank">Tianrui Li</a> and Professor <a href="https://scholar.google.fr/citations?user=CChT2_kAAAAJ&amp;hl=fr" rel="noopener noreferrer" target="_blank">Pascal Prea</a> during my journey in translational medicine and computer science.
+    <br/>
     Outside of research, photography is one of my passions. It connects with my interest in visual perception and low-level vision. Below is a small collection of my scenic photographs, which I hope you enjoy.
   </p>
 </div>
-
 <div class="container news-container">
-  <h4>Updates</h4>
-  <div class="news-content">
-    <ul>
-      <li><time datetime="2026-09">2026/08</time> - I serve as a reviewer for <span style="color: #87CEFA;">ICLR 2027</span>.</li>
-      <li><time datetime="2026-08">2026/08</time> - I serve as a reviewer for <span style="color: #87CEFA;">AAAI 2027</span>.</li>
-      <li><time datetime="2026-08">2026/07</time> - Our paper on AI-guided liver malignancy diagnosis (<a href="https://www.nature.com/articles/s41591-026-04589-y" style="color: #ff7d33;">LiON</a>) is accepted to <span style="color: #90EE90;">Nature Medicine</span>. We sincerely thank all co-authors and participants!</li>
-      <li><time datetime="2026-05">2026/06</time> - One paper on cerebrovascular atlas is accepted to <span style="color: #87CEFA;">MICCAI 2026</span>.</li>
-      <li><time datetime="2026-05">2026/05</time> - One paper on zero-shot vessel segmentation is early accepted to <span style="color: #87CEFA;">MICCAI 2026</span>.</li>
-      <li><time datetime="2026-03">2026/05</time> - I serve as a reviewer for <span style="color: #87CEFA;">NeurIPS 2026</span>.</li>
-      <li><time datetime="2026-03">2026/02</time> - I serve as a reviewer for <span style="color: #87CEFA;">BMVC 2026</span>.</li>
-      <li><time datetime="2026-03">2026/01</time> - I serve as a reviewer for <span style="color: #87CEFA;">ECCV 2026</span>.</li>
-      <li><time datetime="2026-03">2026/01</time> - I serve as a reviewer for <span style="color: #87CEFA;">MICCAI 2026</span>.</li>
-      <li><time datetime="2025-12">2025/12</time> - One paper on multi-modal CT diagnosis (<a href="https://www.sciencedirect.com/science/article/abs/pii/S1361841525004700" style="color: #ff7d33;">MOON++</a>) is accepted to <span style="color: #90EE90;">Medical Image Analysis</span>.</li>
-      <li><time datetime="2025-12">2025/12</time> - I serve as a reviewer for <span style="color: #90EE90;">IEEE TMI</span>.</li>
-      <li><time datetime="2025-11">2025/02</time> - I serve as a reviewer for <span style="color: #87CEFA;">CVPR 2026</span>.</li>
-      <li><time datetime="2025-09">2025/09</time> - I serve as a reviewer for <span style="color: #87CEFA;">ICLR 2026</span>.</li>
-      <li><time datetime="2025-05">2025/05</time> - One paper on non-contrast CT diagnosis (<a href="https://papers.miccai.org/miccai-2025/0701-Paper1669.html" style="color: #ff7d33;">PLUS</a>) is early accepted to <span style="color: #87CEFA;">MICCAI 2025</span>.</li>
-      <li><time datetime="2025-03">2025/03</time> - One paper on image super-resolution (<a href="https://ieeexplore.ieee.org/document/10935664/" style="color: #ff7d33;">MAT</a>) is accepted to <span style="color: #90EE90;">IEEE CSVT</span>.</li>
-      <li><time datetime="2025-02">2025/02</time> - I serve as a reviewer for <span style="color: #87CEFA;">ICCV 2025</span>.</li>
-      <li><time datetime="2025-01">2025/01</time> - I serve as a reviewer for <span style="color: #87CEFA;">MICCAI 2025</span>.</li>
-      <li><time datetime="2024-12">2024/12</time> - One paper on shadow removal (<a href="https://arxiv.org/abs/2407.16214" style="color: #ff7d33;">Diff-Shadow</a>) is accepted to <span style="color: #87CEFA;">AAAI 2025</span>.</li>
-      <li><time datetime="2024-12">2024/12</time> - My master's thesis received the prize for excellent graduate thesis. Infinite thanks to my supervisor Professor Li! </li>
-      <li><time datetime="2024-8">2024/08</time> - I serve as a reviewer for <span style="color: #87CEFA;">CVPR 2025</span>.</li>
-      <li><time datetime="2024-08">2024/08</time> - I serve as a reviewer for <span style="color: #87CEFA;">ICLR 2025</span>.</li>
-      <li><time datetime="2024-08">2024/08</time> - One paper on semantic segmentation of remote sensing (<a href="https://ieeexplore.ieee.org/abstract/document/10638169/" style="color: #ff7d33;">Hi-ResNet</a>) is accepted to <span style="color: #90EE90;">IEEE JSTARS</span>.</li>
-      <li><time datetime="2024-07">2024/07</time> - Three abstracts on CT diagnosis are accepted to <span style="color: #87CEFA;">RSNA 2024</span>.</li>
-      <li><time datetime="2024-07">2024/07</time> - One paper on image super-resolution (<a href="https://dl.acm.org/doi/abs/10.1145/3664647.3680744" style="color: #ff7d33;">EARFA</a>) is accepted to <span style="color: #87CEFA;">ACM MM 2024</span>.</li>
-      <li><time datetime="2024-06">2024/06</time> - One paper on contrast-enhanced CT diagnosis (<a href="https://link.springer.com/chapter/10.1007/978-3-031-72114-4_38" style="color: #ff7d33;">LIDIA</a>) is accepted to <span style="color: #87CEFA;">MICCAI 2024</span>.</li>
-      <li><time datetime="2024-05">2024/05</time> - One paper on non-contrast CT diagnosis (<a href="https://link.springer.com/chapter/10.1007/978-3-031-72086-4_33" style="color: #ff7d33;">MOON</a>) is early accepted to <span style="color: #87CEFA;">MICCAI 2024</span>.</li>
-      <li><time datetime="2024-04">2024/04</time> - I serve as a reviewer for <span style="color: #87CEFA;">ACM MM 2024</span>.</li>
-      <li><time datetime="2024-03">2024/03</time> - I serve as a reviewer for <span style="color: #87CEFA;">ECCV 2024</span>.</li>
-      <li><time datetime="2023-12">2023/12</time> - I serve as a reviewer for <span style="color: #87CEFA;">CVPR 2024</span>.</li> 
-      <li><time datetime="2023-12">2023/12</time> - I serve as a reviewer for <span style="color: #90EE90;">IEEE TPAMI</span>.</li>
-      <li><time datetime="2023-07">2023/07</time> - One paper on image super-resolution (<a href="https://openaccess.thecvf.com/content/ICCV2023/html/Zhang_Boosting_Single_Image_Super-Resolution_via_Partial_Channel_Shifting_ICCV_2023_paper.html" style="color: #ff7d33;">PCS</a>) is accepted to <span style="color: #87CEFA;">ICCV 2023</span>.</li>
-      <li><time datetime="2023-04">2023/04</time> - One paper on lightweight image super-resolution (<a href="https://openaccess.thecvf.com/content/CVPR2023W/NTIRE/html/Xie_Large_Kernel_Distillation_Network_for_Efficient_Single_Image_Super-Resolution_CVPRW_2023_paper.html" style="color: #ff7d33;">LKDN</a>) is accepted to <span style="color: #87CEFA;">CVPR Workshop 2023</span>.</li>
-      <li><time datetime="2023-04">2023/04</time> - One paper on image super-resolution of remote sensing (<a href="https://ieeexplore.ieee.org/abstract/document/10075435/" style="color: #ff7d33;">ReFDN</a>) is accepted to <span style="color: #90EE90;">IEEE GRSL</span>.</li>
-    </ul>
-  </div>
+<h4>Updates</h4>
+<div class="news-content">
+<ul>
+<li><time datetime="2026-09">2026/09</time> – I was awarded the <a class="award" href="https://www.antresearch.com/Cooperation/InTech" rel="noopener noreferrer" target="_blank">Ant Scholarship-Future 2026</a>.</li>
+<li><time datetime="2026-08">2026/08</time> – I serve as a reviewer for <span class="venue">ICLR 2027</span>.</li>
+<li><time datetime="2026-08">2026/08</time> – I serve as a reviewer for <span class="venue">AAAI 2027</span>.</li>
+<li><time datetime="2026-07">2026/07</time> – Our paper on AI-guided liver malignancy diagnosis (<a class="paper" href="https://www.nature.com/articles/s41591-026-04589-y">LiON</a>) is accepted to <span class="venue">Nature Medicine</span>. We sincerely thank all co-authors and participants!</li>
+<li><time datetime="2026-06">2026/06</time> – One paper on cerebrovascular atlas is accepted to <span class="venue">MICCAI 2026</span>.</li>
+<li><time datetime="2026-05">2026/05</time> – One paper on zero-shot vessel segmentation is early accepted to <span class="venue">MICCAI 2026</span>.</li>
+<li><time datetime="2026-05">2026/05</time> – I serve as a reviewer for <span class="venue">NeurIPS 2026</span>.</li>
+<li><time datetime="2026-02">2026/02</time> – I serve as a reviewer for <span class="venue">BMVC 2026</span>.</li>
+<li><time datetime="2026-01">2026/01</time> – I serve as a reviewer for <span class="venue">ECCV 2026</span>.</li>
+<li><time datetime="2026-01">2026/01</time> – I serve as a reviewer for <span class="venue">MICCAI 2026</span>.</li>
+<li><time datetime="2025-12">2025/12</time> – One paper on multi-modal CT diagnosis (<a class="paper" href="https://www.sciencedirect.com/science/article/abs/pii/S1361841525004700">MOON++</a>) is accepted to <span class="venue">Medical Image Analysis</span>.</li>
+<li><time datetime="2025-12">2025/12</time> – I serve as a reviewer for <span class="venue">IEEE TMI</span>.</li>
+<li><time datetime="2025-02">2025/02</time> – I serve as a reviewer for <span class="venue">CVPR 2026</span>.</li>
+<li><time datetime="2025-09">2025/09</time> – I serve as a reviewer for <span class="venue">ICLR 2026</span>.</li>
+<li><time datetime="2025-05">2025/05</time> – One paper on non-contrast CT diagnosis (<a class="paper" href="https://papers.miccai.org/miccai-2025/0701-Paper1669.html">PLUS</a>) is early accepted to <span class="venue">MICCAI 2025</span>.</li>
+<li><time datetime="2025-03">2025/03</time> – One paper on image super-resolution (<a class="paper" href="https://ieeexplore.ieee.org/document/10935664/">MAT</a>) is accepted to <span class="venue">IEEE CSVT</span>.</li>
+<li><time datetime="2025-02">2025/02</time> – I serve as a reviewer for <span class="venue">ICCV 2025</span>.</li>
+<li><time datetime="2025-01">2025/01</time> – I serve as a reviewer for <span class="venue">MICCAI 2025</span>.</li>
+<li><time datetime="2024-12">2024/12</time> – One paper on shadow removal (<a class="paper" href="https://arxiv.org/abs/2407.16214">Diff-Shadow</a>) is accepted to <span class="venue">AAAI 2025</span>.</li>
+<li><time datetime="2024-12">2024/12</time> – My master's thesis received the prize for excellent graduate thesis. Infinite thanks to my supervisor Professor Li! </li>
+<li><time datetime="2024-08">2024/08</time> – I serve as a reviewer for <span class="venue">CVPR 2025</span>.</li>
+<li><time datetime="2024-08">2024/08</time> – I serve as a reviewer for <span class="venue">ICLR 2025</span>.</li>
+<li><time datetime="2024-08">2024/08</time> – One paper on semantic segmentation of remote sensing (<a class="paper" href="https://ieeexplore.ieee.org/abstract/document/10638169/">Hi-ResNet</a>) is accepted to <span class="venue">IEEE JSTARS</span>.</li>
+<li><time datetime="2024-07">2024/07</time> – Three abstracts on CT diagnosis are accepted to <span class="venue">RSNA 2024</span>.</li>
+<li><time datetime="2024-07">2024/07</time> – One paper on image super-resolution (<a class="paper" href="https://dl.acm.org/doi/abs/10.1145/3664647.3680744">EARFA</a>) is accepted to <span class="venue">ACM MM 2024</span>.</li>
+<li><time datetime="2024-06">2024/06</time> – One paper on contrast-enhanced CT diagnosis (<a class="paper" href="https://link.springer.com/chapter/10.1007/978-3-031-72114-4_38">LIDIA</a>) is accepted to <span class="venue">MICCAI 2024</span>.</li>
+<li><time datetime="2024-05">2024/05</time> – One paper on non-contrast CT diagnosis (<a class="paper" href="https://link.springer.com/chapter/10.1007/978-3-031-72086-4_33">MOON</a>) is early accepted to <span class="venue">MICCAI 2024</span>.</li>
+<li><time datetime="2024-04">2024/04</time> – I serve as a reviewer for <span class="venue">ACM MM 2024</span>.</li>
+<li><time datetime="2024-03">2024/03</time> – I serve as a reviewer for <span class="venue">ECCV 2024</span>.</li>
+<li><time datetime="2023-12">2023/12</time> – I serve as a reviewer for <span class="venue">CVPR 2024</span>.</li>
+<li><time datetime="2023-12">2023/12</time> – I serve as a reviewer for <span class="venue">IEEE TPAMI</span>.</li>
+<li><time datetime="2023-07">2023/07</time> – One paper on image super-resolution (<a class="paper" href="https://openaccess.thecvf.com/content/ICCV2023/html/Zhang_Boosting_Single_Image_Super-Resolution_via_Partial_Channel_Shifting_ICCV_2023_paper.html">PCS</a>) is accepted to <span class="venue">ICCV 2023</span>.</li>
+<li><time datetime="2023-04">2023/04</time> – One paper on lightweight image super-resolution (<a class="paper" href="https://openaccess.thecvf.com/content/CVPR2023W/NTIRE/html/Xie_Large_Kernel_Distillation_Network_for_Efficient_Single_Image_Super-Resolution_CVPRW_2023_paper.html">LKDN</a>) is accepted to <span class="venue">CVPR Workshop 2023</span>.</li>
+<li><time datetime="2023-04">2023/04</time> – One paper on image super-resolution of remote sensing (<a class="paper" href="https://ieeexplore.ieee.org/abstract/document/10075435/">ReFDN</a>) is accepted to <span class="venue">IEEE GRSL</span>.</li>
+</ul>
 </div>
-  
-<div class="container">
-    <h4>Album</h4>
-    <div class="gallery">
-      <div class="img-container">
-        <img src="./photo/p0.jpg" alt="Photo 1" onclick="openModal('./photo/p0.jpg', '')">
-        <div class="description">Lake, Luzern</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p1.jpg" alt="Photo 2" onclick="openModal('./photo/p1.jpg', '')">
-        <div class="description">Cliff, Marseille</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p2.jpg" alt="Photo 3" onclick="openModal('./photo/p2.jpg', '')">
-        <div class="description">Mountain, Zermatt</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p3.jpg" alt="Photo 4" onclick="openModal('./photo/p3.jpg', '')">
-        <div class="description">River, Suzhou</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p4.jpg" alt="Photo 5" onclick="openModal('./photo/p4.jpg', '')">
-        <div class="description">Seaside, Rizhao</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p5.jpg" alt="Photo 6" onclick="openModal('./photo/p5.jpg', '')">
-        <div class="description">Buildings, Shanghai</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p6.jpg" alt="Photo 7" onclick="openModal('./photo/p6.jpg', '')">
-        <div class="description">Seaside, Marseille</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p7.jpg" alt="Photo 8" onclick="openModal('./photo/p7.jpg', '')">
-        <div class="description">Lake, Annecy</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p8.jpg" alt="Photo 9" onclick="openModal('./photo/p8.jpg', '')">
-        <div class="description">Lake, Hangzhou</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p9.jpg" alt="Photo 10" onclick="openModal('./photo/p9.jpg', '')">
-        <div class="description">Lake, Geneva</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p10.jpg" alt="Photo 11" onclick="openModal('./photo/p10.jpg', '')">
-        <div class="description">Bridge, London</div>
-      </div>
-      <div class="img-container">
-        <img src="./photo/p11.jpg" alt="Photo 12" onclick="openModal('./photo/p11.jpg', '')">
-        <div class="description">Bridge, Lyon</div>
-      </div>
-    </div>
-  </div>
- 
-<div style="display: flex; justify-content: center; align-items: center; height: 60vh; margin-top: -50px;">
-
-  <div style="width: 200px; height: 200px;">
-    <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=n&d=CNdZn7F1NbVjL6oL7RPt946vKe0KPfymSvCqRrBwh8o&cmn=553acc'></script>
-  </div>
-
 </div>
-
-<div id="myModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="img01">
-  <div id="caption"></div>
+<div class="container gallery-section">
+<h4>Album</h4>
+<div class="gallery">
+<div class="img-container">
+<img alt="Lake, Luzern" decoding="async" loading="lazy" onclick="openModal('./photo/p0.jpg', '')" src="./photo/p0.jpg"/>
+<div class="description">Lake, Luzern</div>
 </div>
-
+<div class="img-container">
+<img alt="Cliff, Marseille" decoding="async" loading="lazy" onclick="openModal('./photo/p1.jpg', '')" src="./photo/p1.jpg"/>
+<div class="description">Cliff, Marseille</div>
+</div>
+<div class="img-container">
+<img alt="Mountain, Zermatt" decoding="async" loading="lazy" onclick="openModal('./photo/p2.jpg', '')" src="./photo/p2.jpg"/>
+<div class="description">Mountain, Zermatt</div>
+</div>
+<div class="img-container">
+<img alt="River, Suzhou" decoding="async" loading="lazy" onclick="openModal('./photo/p3.jpg', '')" src="./photo/p3.jpg"/>
+<div class="description">River, Suzhou</div>
+</div>
+<div class="img-container">
+<img alt="Seaside, Rizhao" decoding="async" loading="lazy" onclick="openModal('./photo/p4.jpg', '')" src="./photo/p4.jpg"/>
+<div class="description">Seaside, Rizhao</div>
+</div>
+<div class="img-container">
+<img alt="Buildings, Shanghai" decoding="async" loading="lazy" onclick="openModal('./photo/p5.jpg', '')" src="./photo/p5.jpg"/>
+<div class="description">Buildings, Shanghai</div>
+</div>
+<div class="img-container">
+<img alt="Seaside, Marseille" decoding="async" loading="lazy" onclick="openModal('./photo/p6.jpg', '')" src="./photo/p6.jpg"/>
+<div class="description">Seaside, Marseille</div>
+</div>
+<div class="img-container">
+<img alt="Lake, Annecy" decoding="async" loading="lazy" onclick="openModal('./photo/p7.jpg', '')" src="./photo/p7.jpg"/>
+<div class="description">Lake, Annecy</div>
+</div>
+<div class="img-container">
+<img alt="Lake, Hangzhou" decoding="async" loading="lazy" onclick="openModal('./photo/p8.jpg', '')" src="./photo/p8.jpg"/>
+<div class="description">Lake, Hangzhou</div>
+</div>
+<div class="img-container">
+<img alt="Lake, Geneva" decoding="async" loading="lazy" onclick="openModal('./photo/p9.jpg', '')" src="./photo/p9.jpg"/>
+<div class="description">Lake, Geneva</div>
+</div>
+<div class="img-container">
+<img alt="Bridge, London" decoding="async" loading="lazy" onclick="openModal('./photo/p10.jpg', '')" src="./photo/p10.jpg"/>
+<div class="description">Bridge, London</div>
+</div>
+<div class="img-container">
+<img alt="Bridge, Lyon" decoding="async" loading="lazy" onclick="openModal('./photo/p11.jpg', '')" src="./photo/p11.jpg"/>
+<div class="description">Bridge, Lyon</div>
+</div>
+</div>
+</div>
+<div class="visitor-map">
+<div class="visitor-map-inner">
+<script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=ffffff&amp;w=a&amp;t=n&amp;d=CNdZn7F1NbVjL6oL7RPt946vKe0KPfymSvCqRrBwh8o&amp;cmn=553acc" type="text/javascript"></script>
+</div>
+</div>
+<div aria-label="Photo viewer" aria-modal="true" class="modal" id="myModal" role="dialog">
+<span aria-label="Close image viewer" class="close" onclick="closeModal()" role="button" tabindex="0">×</span>
+<img class="modal-content" id="img01"/>
+<div id="caption"></div>
+</div>
 <script>
 function openModal(src, description) {
-  document.getElementById('myModal').style.display = "block";
+  const modal = document.getElementById('myModal');
   document.getElementById('img01').src = src;
-  document.getElementById('caption').innerHTML = description; 
+  document.getElementById('caption').textContent = description || '';
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
 }
-function closeModal() {
-  document.getElementById('myModal').style.display = "none";
-}
-</script>
 
+function closeModal() {
+  document.getElementById('myModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') closeModal();
+});
+
+document.getElementById('myModal').addEventListener('click', function (event) {
+  if (event.target === this) closeModal();
+});
+
+document.querySelector('.close').addEventListener('keydown', function (event) {
+  if (event.key === 'Enter' || event.key === ' ') closeModal();
+});
+</script>
 </body>
 </html>
