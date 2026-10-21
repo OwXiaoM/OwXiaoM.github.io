@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Xiaoming Zhang</title><meta content="Academic homepage of Xiaoming Zhang, featuring research interests, publications, reviewing service, awards, and photography." name="description"/>
+<title>Xiaoming Zhang</title>
+<meta content="Academic homepage of Xiaoming Zhang, featuring research interests, publications, reviewing service, awards, and photography." name="description"/>
 <style>
 :root {
   --bg: #f6f7f9;
@@ -48,32 +48,30 @@ a:focus-visible {
   text-decoration: underline;
 }
 
-.container,
-.intro-container {
+.container {
   width: min(860px, calc(100% - 32px));
   margin: 0 auto;
 }
 
-.intro-container {
-  padding: 26px 24px 18px;
-  text-align: justify;
-}
-
-.intro-container p {
-  margin: 0;
-}
-
-.image-container {
+/* --- 新增：顶部左右布局 --- */
+.header-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
-  padding: 34px 24px 10px;
+  align-items: flex-start;
+  gap: 36px;
+  padding: 40px 24px 20px;
 }
 
-.image-container img {
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.profile-sidebar img {
   width: auto;
-  height: 124px;
+  height: 140px;
   border-radius: 18px;
   display: block;
 }
@@ -86,6 +84,7 @@ a:focus-visible {
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 .image-links li {
@@ -95,6 +94,16 @@ a:focus-visible {
 .image-links a {
   font-weight: 600;
 }
+
+.intro-content {
+  flex: 1;
+  text-align: justify;
+}
+
+.intro-content p {
+  margin: 0;
+}
+/* --- 顶部布局结束 --- */
 
 h4 {
   margin: 0 0 14px;
@@ -109,6 +118,7 @@ h4 {
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow);
+  margin-top: 10px;
 }
 
 .news-content {
@@ -279,14 +289,15 @@ h4 {
 }
 
 @media (max-width: 720px) {
-  .intro-container {
-    text-align: left;
-    padding-left: 6px;
-    padding-right: 6px;
+  .header-container {
+    flex-direction: column; 
+    align-items: center;
+    gap: 20px;
+    padding: 30px 16px 10px;
   }
-
-  .image-container {
-    padding-top: 26px;
+  
+  .intro-content {
+    text-align: left; 
   }
 
   .news-container {
@@ -310,17 +321,12 @@ h4 {
 }
 
 @media (max-width: 480px) {
-  .container,
-  .intro-container {
+  .container {
     width: min(100% - 22px, 860px);
   }
 
-  .image-container {
-    gap: 16px;
-  }
-
-  .image-container img {
-    height: 108px;
+  .profile-sidebar img {
+    height: 120px;
   }
 
   .gallery {
@@ -343,29 +349,36 @@ h4 {
 </script>
 </head>
 <body>
-<div class="container image-container">
-<img alt="Xiaoming's Photo" src="./photo/baby.jpg"/>
-<div class="image-links">
-<ul>
-<li><a href="https://scholar.google.com/citations?user=ANtWOPgDwosC" rel="noopener noreferrer" target="_blank">Google Scholar</a></li>
-<li><a href="https://orcid.org/0009-0000-3986-885X" rel="noopener noreferrer" target="_blank">ORCID</a></li>
-</ul>
-</div>
-</div>
-<div class="intro-container">
-<p>
-    Hello, my name is Xiaoming, it's a pleasure to meet you.
-    <br/>
-    My research interests lie at the intersection of medical image analysis, radiology, neuroimaging and oncology imaging, with a focus on real-world diagnostic challenges and understanding brain ageing across the lifespan.
-    <br/>
-     I am currently contributing to the ERC Consolidator Grant project <a href="https://www.kcl.ac.uk/news/2-million-erc-grant-awarded-for-studying-the-brain-vessel-tree" rel="noopener noreferrer" target="_blank">CARAVEL</a>, led by Professor <a href="https://zuluaga.eurecom.io/" rel="noopener noreferrer" target="_blank">Maria A. Zuluaga</a>, also in close collaboration with Professor <a href="https://www.kcl.ac.uk/people/sebastien-ourselin" rel="noopener noreferrer" target="_blank">Sébastien Ourselin</a> 
+
+<div class="container header-container">
+  
+  <div class="profile-sidebar">
+    <img alt="Xiaoming's Photo" src="./photo/baby.jpg"/>
+    <div class="image-links">
+      <ul>
+        <li><a href="https://scholar.google.com/citations?user=ANtWOPgDwosC" rel="noopener noreferrer" target="_blank">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0009-0000-3986-885X" rel="noopener noreferrer" target="_blank">ORCID</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="intro-content">
+    <p>
+      Hello, my name is Xiaoming, it's a pleasure to meet you.
+      <br/><br/>
+      My research interests lie at the intersection of medical image analysis, radiology, neuroimaging and oncology imaging, with a focus on real-world diagnostic challenges and understanding brain ageing across the lifespan.
+      <br/><br/>
+       I am currently contributing to the ERC Consolidator Grant project <a href="https://www.kcl.ac.uk/news/2-million-erc-grant-awarded-for-studying-the-brain-vessel-tree" rel="noopener noreferrer" target="_blank">CARAVEL</a>, led by Professor <a href="https://zuluaga.eurecom.io/" rel="noopener noreferrer" target="_blank">Maria A. Zuluaga</a>, also in close collaboration with Professor <a href="https://www.kcl.ac.uk/people/sebastien-ourselin" rel="noopener noreferrer" target="_blank">Sébastien Ourselin</a> 
 and Professor <a href="https://www.professoren.tum.de/rueckert-daniel" rel="noopener noreferrer" target="_blank">Daniel Rüeckert</a>.
-    <br/>
-    I have been fortunate to receive guidance from  Professor <a href="https://www.cs.jhu.edu/~lelu/" rel="noopener noreferrer" target="_blank">Le Lu</a>, Professor <a href="https://faculty.swjtu.edu.cn/litianrui/en/index.htm" rel="noopener noreferrer" target="_blank">Tianrui Li</a> and Professor <a href="https://scholar.google.fr/citations?user=CChT2_kAAAAJ&amp;hl=fr" rel="noopener noreferrer" target="_blank">Pascal Prea</a> during my journey in translational medicine and computer science.
-    <br/>
-    Outside of research, photography is one of my passions. It connects with my interest in visual perception and low-level vision. Below is a small collection of my scenic photographs, which I hope you enjoy.
-  </p>
+      <br/><br/>
+      I have been fortunate to receive guidance from  Professor <a href="https://www.cs.jhu.edu/~lelu/" rel="noopener noreferrer" target="_blank">Le Lu</a>, Professor <a href="https://faculty.swjtu.edu.cn/litianrui/en/index.htm" rel="noopener noreferrer" target="_blank">Tianrui Li</a> and Professor <a href="https://scholar.google.fr/citations?user=CChT2_kAAAAJ&amp;hl=fr" rel="noopener noreferrer" target="_blank">Pascal Prea</a> during my journey in translational medicine and computer science.
+      <br/><br/>
+      Outside of research, photography is one of my passions. It connects with my interest in visual perception and low-level vision. Below is a small collection of my scenic photographs, which I hope you enjoy.
+    </p>
+  </div>
+
 </div>
+
 <div class="container news-container">
 <h4>Updates</h4>
 <div class="news-content">
@@ -410,6 +423,7 @@ and Professor <a href="https://www.professoren.tum.de/rueckert-daniel" rel="noop
 </ul>
 </div>
 </div>
+
 <div class="container gallery-section">
 <h4>Album</h4>
 <div class="gallery">
@@ -463,16 +477,19 @@ and Professor <a href="https://www.professoren.tum.de/rueckert-daniel" rel="noop
 </div>
 </div>
 </div>
+
 <div class="visitor-map">
 <div class="visitor-map-inner">
 <script id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=ffffff&amp;w=a&amp;t=n&amp;d=CNdZn7F1NbVjL6oL7RPt946vKe0KPfymSvCqRrBwh8o&amp;cmn=553acc" type="text/javascript"></script>
 </div>
 </div>
+
 <div aria-label="Photo viewer" aria-modal="true" class="modal" id="myModal" role="dialog">
 <span aria-label="Close image viewer" class="close" onclick="closeModal()" role="button" tabindex="0">×</span>
 <img class="modal-content" id="img01"/>
 <div id="caption"></div>
 </div>
+
 <script>
 function openModal(src, description) {
   const modal = document.getElementById('myModal');
